@@ -71,7 +71,7 @@
 
   <!-- TOP ANNOUNCEMENT BAR -->
   <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 text-xs sm:text-sm font-extrabold py-2 px-4 text-center tracking-wide shadow-md">
-    ⚡ MINI-SIMULADO DIAGNÓSTICO TRI • FATOR X ENEM 2026 • MOTOR 3PL OFICIAL
+    ⚡ MINI-SIMULADO DIAGNÓSTICO TRI • FATOR X ENEM 2026 • MOTOR 3PL CALIBRADO
   </div>
 
   <!-- HEADER -->
@@ -106,14 +106,14 @@
       <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 bg-blue-950/60 border border-blue-800/60 px-3 py-1 rounded-full text-xs font-semibold text-blue-300 mb-3">
-          📊
+          <span>📊</span>
           <span>Passo 1 de 2: Preencha seu Cartão-Resposta</span>
         </div>
         <h2 class="text-xl sm:text-2xl font-display font-extrabold text-white tracking-tight mb-2">
           Insira suas 15 respostas do Mini-Simulado
         </h2>
         <p class="text-sm text-slate-400 leading-relaxed mb-4">
-          O algoritmo psicométrico do <strong>Fator X</strong> aplicará o modelo logístico de 3 parâmetros (3PL) do INEP para calcular sua <strong>Nota TRI estimada</strong> e identificar se você cometeu <strong>incoerência pedagógica</strong> (efeito chute).
+          O algoritmo psicométrico do <strong>Fator X</strong> aplicará a régua da TRI do ENEM para calcular sua <strong>Nota TRI estimada</strong> e identificar se você cometeu <strong>incoerência pedagógica</strong> (efeito chute).
         </p>
         <div class="flex flex-wrap items-center gap-3 text-xs text-slate-300">
           <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">🟢 6 Itens Fáceis</span>
@@ -129,7 +129,7 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
         <div>
           <h3 class="text-base font-display font-bold text-white flex items-center gap-2">
-            📝
+            <span>📝</span>
             Cartão-Resposta Digital
           </h3>
           <p class="text-xs text-slate-400 mt-0.5">Clique nas bolhas ou digite as letras (A, B, C, D, E) no teclado.</p>
@@ -149,21 +149,19 @@
       </div>
 
       <!-- GRADE DE ALVÉOLOS: 3 COLUNAS DE 5 -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gridQuestoes">
-        <!-- Renderizado dinamicamente via JS -->
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gridQuestoes"></div>
 
       <!-- BOTÃO DE CÁLCULO -->
       <div class="mt-8 text-center pt-6 border-t border-slate-800">
         <button id="btnCalcular" onclick="calcularResultadoTRI()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-display font-extrabold text-base sm:text-lg px-10 py-4 rounded-xl transition-all shadow-lg hover:shadow-amber-500/25 active:scale-95">
-          📈
+          <span>📈</span>
           <span>CALCULAR NOTA TRI & DIAGNÓSTICO</span>
         </button>
       </div>
     </section>
 
     <!-- PAINEL DE RESULTADOS (INICIALMENTE OCULTO) -->
-    <div id="painelResultados" class="hidden space-y-8 animate-fade-in">
+    <div id="painelResultados" class="hidden space-y-8">
 
       <!-- CARD PRINCIPAL: NOTA TRI + COERÊNCIA -->
       <section class="bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
@@ -241,13 +239,13 @@
         </div>
       </section>
 
-      <!-- SEÇÃO DE CONVERSÃO / OFERTA PROFISSIONAL (O PONTO DE VIRADA) -->
+      <!-- SEÇÃO DE CONVERSÃO / OFERTA PROFISSIONAL -->
       <section class="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-2 border-emerald-500/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
         <div class="absolute -right-16 -top-16 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="max-w-3xl mx-auto text-center">
           
           <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider mb-4">
-            🛡️
+            <span>🛡️</span>
             <span>Diagnóstico Concluído • Próximo Passo Estratégico</span>
           </div>
 
@@ -263,19 +261,19 @@
           <!-- BENEFÍCIOS DO COMBO -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto mb-8 bg-slate-950/60 p-5 rounded-2xl border border-slate-800">
             <div class="flex items-start gap-2.5">
-              ✅
+              <span class="text-emerald-400 font-bold">✅</span>
               <span class="text-xs sm:text-sm text-slate-200"><strong>5 Cadernos Oficiais Inéditos (225 Itens):</strong> Calibrados exatamente na régua da TRI.</span>
             </div>
             <div class="flex items-start gap-2.5">
-              ✅
+              <span class="text-emerald-400 font-bold">✅</span>
               <span class="text-xs sm:text-sm text-slate-200"><strong>Gabarito Anatômico dos Distratores:</strong> Dissecação de cada pegadinha para você nunca mais cair no erro.</span>
             </div>
             <div class="flex items-start gap-2.5">
-              ✅
+              <span class="text-emerald-400 font-bold">✅</span>
               <span class="text-xs sm:text-sm text-slate-200"><strong>Web App Corretor TRI Vitalício:</strong> Corrija todos os 5 simulados completos com notas instantâneas.</span>
             </div>
             <div class="flex items-start gap-2.5">
-              ✅
+              <span class="text-emerald-400 font-bold">✅</span>
               <span class="text-xs sm:text-sm text-slate-200"><strong>Garantia Incondicional de 7 Dias:</strong> Risco zero para você testar e aprovar.</span>
             </div>
           </div>
@@ -292,7 +290,7 @@
 
           <a href="https://pay.hotmart.com/T107710305E?src=app_corretor_diag" target="_blank" class="pulse-btn inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-display font-black text-base sm:text-lg px-8 py-4 rounded-xl transition-all shadow-xl active:scale-95">
             <span>QUERO O COMBO COMPLETO 5 SIMULADOS FATOR X</span>
-            ➔
+            <span>➔</span>
           </a>
 
           <div class="flex items-center justify-center gap-6 mt-4 text-[11px] text-slate-400">
@@ -307,7 +305,7 @@
       <!-- ESPELHO DA PROVA: CORREÇÃO ITEM A ITEM -->
       <section class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl">
         <h3 class="text-lg font-display font-bold text-white mb-2 flex items-center gap-2">
-          📋
+          <span>📋</span>
           Espelho da Prova • Análise Questão a Questão
         </h3>
         <p class="text-xs text-slate-400 mb-6">Confira seus acertos, erros e a justificativa pedagógica da Matriz do INEP.</p>
@@ -325,9 +323,7 @@
                 <th class="py-3 px-3">Tópico Matemático</th>
               </tr>
             </thead>
-            <tbody id="tabelaEspelho" class="divide-y divide-slate-800/60 font-medium">
-              <!-- Preenchido via JS -->
-            </tbody>
+            <tbody id="tabelaEspelho" class="divide-y divide-slate-800/60 font-medium"></tbody>
           </table>
         </div>
       </section>
@@ -371,7 +367,6 @@
       const grid = document.getElementById('gridQuestoes');
       grid.innerHTML = '';
 
-      // Dividir em 3 colunas de 5
       for (let col = 0; col < 3; col++) {
         const colDiv = document.createElement('div');
         colDiv.className = 'space-y-3';
@@ -409,12 +404,11 @@
         grid.appendChild(colDiv);
       }
       atualizarContador();
-    }
+    };
 
     window.selecionarOpcao = function(item, opt) {
       respostasAluno[item] = opt;
       
-      // Atualizar estilo dos botões da questão
       const buttons = document.querySelectorAll(`button[data-q="${item}"]`);
       buttons.forEach(btn => {
         if (btn.getAttribute('data-opt') === opt) {
@@ -424,27 +418,24 @@
         }
       });
       atualizarContador();
-    }
+    };
 
     window.atualizarContador = function() {
       const total = Object.keys(respostasAluno).length;
       document.getElementById('counterPreenchidas').textContent = `${total} de 15 preenchidas`;
-    }
+    };
 
     window.preencherExemplo = function(tipo) {
       respostasAluno = {};
       if (tipo === 'coerente') {
-        // Acerta todas as fáceis e médias, erra as difíceis
         ITENS_DB.forEach(q => {
           if (q.tri === 'Fácil' || q.tri === 'Médio') {
             respostasAluno[q.item] = q.gab;
           } else {
-            // Chuta errado
             respostasAluno[q.item] = q.gab === 'A' ? 'B' : 'A';
           }
         });
       } else {
-        // Incoerente: acerta difíceis e erra fáceis
         ITENS_DB.forEach(q => {
           if (q.tri === 'Difícil') {
             respostasAluno[q.item] = q.gab;
@@ -454,21 +445,19 @@
         });
       }
       
-      // Atualizar interface
       ITENS_DB.forEach(q => {
         if (respostasAluno[q.item]) {
           selecionarOpcao(q.item, respostasAluno[q.item]);
         }
       });
-    }
+    };
 
     window.limparRespostas = function() {
       respostasAluno = {};
       renderizarGrade();
       document.getElementById('painelResultados').classList.add('hidden');
-    }
+    };
 
-    // MOTOR PSICOMÉTRICO 3PL (MODELO INEP)
     window.calcularResultadoTRI = function() {
       const respondidas = Object.keys(respostasAluno).length;
       if (respondidas === 0) {
@@ -501,7 +490,7 @@
       const taxaDificil = acertosDificil / totalDificil;
 
       // CALIBRAÇÃO OFICIAL DA ESCALA ENEM EM MATEMÁTICA (0 A 1000)
-      // Mínimo histórico: ~320 | Base Fácil: +310 | Médias (800+): +180 | Difíceis (Topo): +155 -> Max: 985.0
+      // Base mínima: ~340 | Base Fácil: +310 | Médias (800+): +180 | Difíceis (Topo): +155 -> Máx: 985.0
       let scoreBase = 340.0;
       let scoreFacil = taxaFacil * 310.0;
       let scoreMedio = taxaMedio * 180.0;
@@ -588,16 +577,13 @@
         tbody.appendChild(tr);
       });
 
-      // Exibir resultados e rolar suavemente
       const painel = document.getElementById('painelResultados');
       painel.classList.remove('hidden');
-      if (typeof lucide !== "undefined" && lucide.createIcons) { lucide.createIcons(); }
       painel.scrollIntoView({ behavior: 'smooth' });
     };
 
     document.addEventListener('DOMContentLoaded', () => {
       renderizarGrade();
-      if (typeof lucide !== "undefined" && lucide.createIcons) { lucide.createIcons(); }
     });
   </script>
 </body>
