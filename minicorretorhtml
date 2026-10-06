@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corretor TRI • Mini-Simulado Diagnóstico | Prof. Thiago Castro</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#070B19',
+              card: '#0D152A',
+              cardBorder: '#1E293B',
+              blue: '#2563EB',
+              cyan: '#38BDF8',
+              gold: '#F59E0B',
+              emerald: '#10B981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bubble {
+      transition: all 0.15s ease-in-out;
+      user-select: none;
+    }
+    .bubble:hover {
+      transform: scale(1.10);
+    }
+    .bubble.selected {
+      background-color: #0F172A !important;
+      color: #FFFFFF !important;
+      font-weight: 700;
+      border-color: #0F172A !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .glow-gold {
+      box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.35);
+    }
+    .pulse-btn {
+      animation: pulseGlow 2.5s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.7); }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-black">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 text-xs sm:text-sm font-extrabold py-2 px-4 text-center tracking-wide shadow-md">
+    ⚡ MINI-SIMULADO DIAGNÓSTICO TRI • FATOR X ENEM 2026 • MOTOR 3PL OFICIAL
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-slate-950/80 border-b border-slate-800 sticky top-0 backdrop-blur-md z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center font-display font-black text-slate-950 text-xl shadow-lg">
+          FX
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">enem2026</span>
+            <span class="text-xs text-slate-400">Prof. Thiago Castro</span>
+          </div>
+          <h1 class="text-base sm:text-lg font-display font-bold text-white tracking-tight">
+            Corretor TRI • Mini-Simulado Diagnóstico (15Q)
+          </h1>
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center gap-2 text-xs text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span>Calibrado na Matriz INEP</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+
+    <!-- INTRO CARD -->
+    <section class="bg-slate-950/60 border border-slate-800 rounded-2xl p-6 relative overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-blue-950/60 border border-blue-800/60 px-3 py-1 rounded-full text-xs font-semibold text-blue-300 mb-3">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span>Passo 1 de 2: Preencha seu Cartão-Resposta</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-display font-extrabold text-white tracking-tight mb-2">
+          Insira suas 15 respostas do Mini-Simulado
+        </h2>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">
+          O algoritmo psicométrico do <strong>Fator X</strong> aplicará o modelo logístico de 3 parâmetros (3PL) do INEP para calcular sua <strong>Nota TRI estimada</strong> e identificar se você cometeu <strong>incoerência pedagógica</strong> (efeito chute).
+        </p>
+        <div class="flex flex-wrap items-center gap-3 text-xs text-slate-300">
+          <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">🟢 6 Itens Fáceis</span>
+          <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">🟡 5 Itens Médios</span>
+          <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">🔴 4 Itens Difíceis</span>
+          <span id="counterPreenchidas" class="ml-auto font-bold text-amber-400">0 de 15 preenchidas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO DE PREENCHIMENTO (15 QUESTÕES) -->
+    <section class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+        <div>
+          <h3 class="text-base font-display font-bold text-white flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400"></i>
+            Cartão-Resposta Digital
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Clique nas bolhas ou digite as letras (A, B, C, D, E) no teclado.</p>
+        </div>
+        <!-- ATALHOS RÁPIDOS -->
+        <div class="flex items-center gap-2">
+          <button onclick="preencherExemplo('coerente')" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 px-3 py-1.5 rounded-lg transition-colors">
+            ✨ Exemplo Coerente
+          </button>
+          <button onclick="preencherExemplo('chute')" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 px-3 py-1.5 rounded-lg transition-colors">
+            ⚠️ Exemplo Incoerente
+          </button>
+          <button onclick="limparRespostas()" class="text-xs text-red-400 hover:text-red-300 px-2 py-1.5 transition-colors">
+            Limpar
+          </button>
+        </div>
+      </div>
+
+      <!-- GRADE DE ALVÉOLOS: 3 COLUNAS DE 5 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gridQuestoes">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+
+      <!-- BOTÃO DE CÁLCULO -->
+      <div class="mt-8 text-center pt-6 border-t border-slate-800">
+        <button id="btnCalcular" onclick="calcularResultadoTRI()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-display font-extrabold text-base sm:text-lg px-10 py-4 rounded-xl transition-all shadow-lg hover:shadow-amber-500/25 active:scale-95">
+          <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+          <span>CALCULAR NOTA TRI & DIAGNÓSTICO</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAINEL DE RESULTADOS (INICIALMENTE OCULTO) -->
+    <div id="painelResultados" class="hidden space-y-8 animate-fade-in">
+
+      <!-- CARD PRINCIPAL: NOTA TRI + COERÊNCIA -->
+      <section class="bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+          
+          <!-- ESCORE TRI -->
+          <div class="text-center md:text-left border-b md:border-b-0 md:border-r border-slate-800 pb-6 md:pb-0 md:pr-6">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-slate-400">Sua Nota TRI Estimada</span>
+            <div class="text-5xl sm:text-6xl font-display font-black text-amber-400 my-2 tracking-tight" id="resNotaTRI">
+              --
+            </div>
+            <div class="text-xs text-slate-400" id="resFaixaNota">
+              Faixa provável: --
+            </div>
+          </div>
+
+          <!-- ACERTOS BRUTOS -->
+          <div class="text-center md:text-left border-b md:border-b-0 md:border-r border-slate-800 pb-6 md:pb-0 md:px-6">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-slate-400">Desempenho Geral</span>
+            <div class="text-3xl font-display font-extrabold text-white my-2" id="resAcertos">
+              0 / 15
+            </div>
+            <div class="text-xs text-slate-400" id="resAproveitamento">
+              Aproveitamento: 0%
+            </div>
+          </div>
+
+          <!-- STATUS DE COERÊNCIA TRI -->
+          <div class="text-center md:text-left md:pl-6">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-slate-400">Diagnóstico de Coerência</span>
+            <div class="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full text-xs font-extrabold border" id="badgeCoerencia">
+              Analisando...
+            </div>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed" id="resDescCoerencia">
+              --
+            </p>
+          </div>
+
+        </div>
+
+        <!-- BARRAS DE RENDIMENTO POR NÍVEL -->
+        <div class="mt-8 pt-6 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-slate-900/80 border border-slate-800/80 rounded-xl p-3.5">
+            <div class="flex justify-between items-center text-xs mb-1.5">
+              <span class="font-bold text-emerald-400">Itens Fáceis (Base)</span>
+              <span id="txtFacil" class="font-extrabold text-white">0 / 6</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div id="barFacil" class="bg-emerald-500 h-full w-0 transition-all duration-500"></div>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 block">Sustentam a pontuação mínima da TRI.</span>
+          </div>
+
+          <div class="bg-slate-900/80 border border-slate-800/80 rounded-xl p-3.5">
+            <div class="flex justify-between items-center text-xs mb-1.5">
+              <span class="font-bold text-amber-400">Itens Médios (Consolidação)</span>
+              <span id="txtMedio" class="font-extrabold text-white">0 / 5</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div id="barMedio" class="bg-amber-500 h-full w-0 transition-all duration-500"></div>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 block">Projetam o aluno para a faixa dos 800+.</span>
+          </div>
+
+          <div class="bg-slate-900/80 border border-slate-800/80 rounded-xl p-3.5">
+            <div class="flex justify-between items-center text-xs mb-1.5">
+              <span class="font-bold text-rose-400">Itens Difíceis (Decisores)</span>
+              <span id="txtDificil" class="font-extrabold text-white">0 / 4</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div id="barDificil" class="bg-rose-500 h-full w-0 transition-all duration-500"></div>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-1 block">Diferencial competitivo para Medicina (850+).</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO DE CONVERSÃO / OFERTA PROFISSIONAL (O PONTO DE VIRADA) -->
+      <section class="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-2 border-emerald-500/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto text-center">
+          
+          <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider mb-4">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>Diagnóstico Concluído • Próximo Passo Estratégico</span>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white tracking-tight mb-4">
+            Você acabou de ver seu diagnóstico em 15 questões.<br>
+            <span class="text-amber-400">Mas a prova real do ENEM cobra 45 itens sob pressão.</span>
+          </h3>
+
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+            O maior erro de quem estuda para o ENEM é treinar questões aleatórias sem medir a coerência na TRI. Para chegar no dia da prova com a certeza de que sua nota vai passar dos <strong>800 pontos</strong>, você precisa treinar o volume completo com simulados que replicam a matriz exata do INEP.
+          </p>
+
+          <!-- BENEFÍCIOS DO COMBO -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto mb-8 bg-slate-950/60 p-5 rounded-2xl border border-slate-800">
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-xs sm:text-sm text-slate-200"><strong>5 Cadernos Oficiais Inéditos (225 Itens):</strong> Calibrados exatamente na régua da TRI.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-xs sm:text-sm text-slate-200"><strong>Gabarito Anatômico dos Distratores:</strong> Dissecação de cada pegadinha para você nunca mais cair no erro.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-xs sm:text-sm text-slate-200"><strong>Web App Corretor TRI Vitalício:</strong> Corrija todos os 5 simulados completos com notas instantâneas.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span class="text-xs sm:text-sm text-slate-200"><strong>Garantia Incondicional de 7 Dias:</strong> Risco zero para você testar e aprovar.</span>
+            </div>
+          </div>
+
+          <!-- OFERTA E BOTÃO -->
+          <div class="mb-4">
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">Condição especial de reta final:</div>
+            <div class="flex items-center justify-center gap-3">
+              <span class="text-slate-500 line-through text-lg">R$ 97,00</span>
+              <span class="text-3xl sm:text-4xl font-display font-black text-emerald-400">R$ 47,00 à vista</span>
+            </div>
+            <div class="text-xs text-slate-400 mt-1">ou 5x de R$ 10,23 no cartão (menos de R$ 9,50 por simulado)</div>
+          </div>
+
+          <a href="https://pay.hotmart.com/T107710305E?src=app_corretor_diag" target="_blank" class="pulse-btn inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-display font-black text-base sm:text-lg px-8 py-4 rounded-xl transition-all shadow-xl active:scale-95">
+            <span>QUERO O COMBO COMPLETO 5 SIMULADOS FATOR X</span>
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+
+          <div class="flex items-center justify-center gap-6 mt-4 text-[11px] text-slate-400">
+            <span class="flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-400"></i> Pagamento Seguro</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> Acesso Imediato</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="award" class="w-3.5 h-3.5 text-sky-400"></i> 7 Dias de Garantia</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ESPELHO DA PROVA: CORREÇÃO ITEM A ITEM -->
+      <section class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <h3 class="text-lg font-display font-bold text-white mb-2 flex items-center gap-2">
+          <i data-lucide="list-ordered" class="w-5 h-5 text-amber-400"></i>
+          Espelho da Prova • Análise Questão a Questão
+        </h3>
+        <p class="text-xs text-slate-400 mb-6">Confira seus acertos, erros e a justificativa pedagógica da Matriz do INEP.</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400 font-bold uppercase text-[10px]">
+                <th class="py-3 px-3 text-center">Item</th>
+                <th class="py-3 px-3 text-center">Sua Resposta</th>
+                <th class="py-3 px-3 text-center">Gabarito</th>
+                <th class="py-3 px-3 text-center">Resultado</th>
+                <th class="py-3 px-3">Habilidade</th>
+                <th class="py-3 px-3">Nível TRI</th>
+                <th class="py-3 px-3">Tópico Matemático</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaEspelho" class="divide-y divide-slate-800/60 font-medium">
+              <!-- Preenchido via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
+      <p class="font-bold text-slate-400">FATOR X • PREPARAÇÃO DE ALTO RENDIMENTO EM MATEMÁTICA</p>
+      <p>Prof. Thiago Castro • Instagram: <a href="https://instagram.com/prof.thiagocastro" target="_blank" class="text-amber-400 hover:underline">@prof.thiagocastro</a></p>
+      <p class="text-[10px] text-slate-600">Este mini-simulado e algoritmo foram desenvolvidos de acordo com a Matriz de Referência oficial do INEP para o ENEM 2026.</p>
+    </div>
+  </footer>
+
+  <!-- DADOS DAS 15 QUESTÕES E MOTOR PSICOMÉTRICO JS -->
+  <script>
+    const ITENS_DB = [
+      { item: 1,  gab: 'B', hab: 'H11', tri: 'Fácil',   b: -1.2, a: 1.4, c: 0.20, topico: 'Escala Cartográfica Linear', erro: 'Erros em escala decorrem de confusão na conversão de cm para km (divisão por 100.000).' },
+      { item: 2,  gab: 'C', hab: 'H15', tri: 'Fácil',   b: -1.0, a: 1.3, c: 0.20, topico: 'Proporcionalidade Direta',    erro: 'Inversão da regra de três ou erro na conversão de mL para litros.' },
+      { item: 3,  gab: 'B', hab: 'H1',  tri: 'Fácil',   b: -1.3, a: 1.4, c: 0.20, topico: 'Porcentagem e Descontos',     erro: 'Parada prematura: calculou o valor do desconto (R$ 24), mas não subtraiu do total.' },
+      { item: 4,  gab: 'B', hab: 'H27', tri: 'Fácil',   b: -0.9, a: 1.3, c: 0.20, topico: 'Mediana Amostral',           erro: 'Não ordenou o rol antes de buscar o elemento central ou confundiu com a média.' },
+      { item: 5,  gab: 'C', hab: 'H10', tri: 'Fácil',   b: -0.8, a: 1.4, c: 0.20, topico: 'Volume Cúbico e Capacidade',  erro: 'Calculou o volume vazio (25%) ou errou a conversão de m³ para litros.' },
+      { item: 6,  gab: 'D', hab: 'H24', tri: 'Fácil',   b: -0.7, a: 1.5, c: 0.20, topico: 'Variação Percentual em Gráfico', erro: 'Confundiu a taxa de aumento (200%) com a razão entre o valor final e inicial (300%).' },
+      { item: 7,  gab: 'B', hab: 'H19', tri: 'Médio',   b:  0.0, a: 1.5, c: 0.20, topico: 'Modelagem de Função Afim',   erro: 'Esqueceu de subtrair a taxa fixa ou inverteu a divisão por 0,50.' },
+      { item: 8,  gab: 'C', hab: 'H7',  tri: 'Médio',   b:  0.2, a: 1.6, c: 0.20, topico: 'Áreas Compostas e Losango',   erro: 'Não percebeu que o losango inscrito nos pontos médios ocupa 50% da área do retângulo.' },
+      { item: 9,  gab: 'B', hab: 'H12', tri: 'Médio',   b:  0.3, a: 1.5, c: 0.20, topico: 'Volume de Cilindro e Vazão',  erro: 'Esqueceu de elevar o raio ao quadrado ou errou o fator pi = 3,0.' },
+      { item: 10, gab: 'C', hab: 'H21', tri: 'Médio',   b:  0.5, a: 1.7, c: 0.20, topico: 'Função Quadrática / Vértice',  erro: 'Confundiu a quantidade que maximiza (Xv = 20) com o valor do lucro máximo (Yv = 500).' },
+      { item: 11, gab: 'B', hab: 'H6',  tri: 'Médio',   b:  0.6, a: 1.6, c: 0.20, topico: 'Projeção Ortogonal',          erro: 'Confundiu projeção ortogonal vertical ao meio-dia com vista lateral da hélice.' },
+      { item: 12, gab: 'C', hab: 'H2',  tri: 'Difícil', b:  1.2, a: 1.7, c: 0.20, topico: 'Combinatória com Restrições', erro: 'Parada prematura: calculou apenas um caso e esqueceu o sentido de "pelo menos 3".' },
+      { item: 13, gab: 'B', hab: 'H28', tri: 'Difícil', b:  1.5, a: 1.8, c: 0.20, topico: 'Probabilidade Condicional',   erro: 'Falácia da taxa-base: confundiu a sensibilidade do teste com a probabilidade a posteriori.' },
+      { item: 14, gab: 'B', hab: 'H22', tri: 'Difícil', b:  1.6, a: 1.7, c: 0.20, topico: 'Logaritmo e Exponencial',    erro: 'Erro de manipulação das propriedades de logaritmo do quociente (log de 4/10).' },
+      { item: 15, gab: 'C', hab: 'H18', tri: 'Difícil', b:  1.8, a: 1.8, c: 0.20, topico: 'Tronco de Pirâmide Regular',  erro: 'Fez média aritmética ingênua das bases em vez do produto geométrico na fórmula do tronco.' }
+    ];
+
+    let respostasAluno = {};
+
+    function renderizarGrade() {
+      const grid = document.getElementById('gridQuestoes');
+      grid.innerHTML = '';
+
+      // Dividir em 3 colunas de 5
+      for (let col = 0; col < 3; col++) {
+        const colDiv = document.createElement('div');
+        colDiv.className = 'space-y-3';
+        
+        const start = col * 5;
+        const end = start + 5;
+        
+        for (let i = start; i < end; i++) {
+          const q = ITENS_DB[i];
+          const badgeClass = q.tri === 'Fácil' ? 'text-emerald-400 bg-emerald-950/40 border-emerald-800' :
+                             q.tri === 'Médio' ? 'text-amber-400 bg-amber-950/40 border-amber-800' :
+                                                 'text-rose-400 bg-rose-950/40 border-rose-800';
+
+          const row = document.createElement('div');
+          row.className = 'bg-slate-900/90 border border-slate-800/80 rounded-xl p-3 flex items-center justify-between gap-2';
+          row.innerHTML = `
+            <div class="flex items-center gap-2">
+              <span class="font-display font-bold text-white text-sm w-7">Q${String(q.item).padStart(2, '0')}</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded border font-semibold ${badgeClass}">${q.tri}</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              ${['A', 'B', 'C', 'D', 'E'].map(opt => `
+                <button type="button" 
+                  data-q="${q.item}" 
+                  data-opt="${opt}"
+                  onclick="selecionarOpcao(${q.item}, '${opt}')"
+                  class="bubble w-8 h-8 rounded-lg border border-slate-700 bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center hover:border-slate-500">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+          `;
+          colDiv.appendChild(row);
+        }
+        grid.appendChild(colDiv);
+      }
+      atualizarContador();
+    }
+
+    function selecionarOpcao(item, opt) {
+      respostasAluno[item] = opt;
+      
+      // Atualizar estilo dos botões da questão
+      const buttons = document.querySelectorAll(`button[data-q="${item}"]`);
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-opt') === opt) {
+          btn.className = 'bubble w-8 h-8 rounded-lg font-black text-xs flex items-center justify-center bg-amber-500 text-slate-950 border-2 border-amber-400 shadow-md scale-105';
+        } else {
+          btn.className = 'bubble w-8 h-8 rounded-lg border border-slate-700 bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center hover:border-slate-500';
+        }
+      });
+      atualizarContador();
+    }
+
+    function atualizarContador() {
+      const total = Object.keys(respostasAluno).length;
+      document.getElementById('counterPreenchidas').textContent = `${total} de 15 preenchidas`;
+    }
+
+    function preencherExemplo(tipo) {
+      respostasAluno = {};
+      if (tipo === 'coerente') {
+        // Acerta todas as fáceis e médias, erra as difíceis
+        ITENS_DB.forEach(q => {
+          if (q.tri === 'Fácil' || q.tri === 'Médio') {
+            respostasAluno[q.item] = q.gab;
+          } else {
+            // Chuta errado
+            respostasAluno[q.item] = q.gab === 'A' ? 'B' : 'A';
+          }
+        });
+      } else {
+        // Incoerente: acerta difíceis e erra fáceis
+        ITENS_DB.forEach(q => {
+          if (q.tri === 'Difícil') {
+            respostasAluno[q.item] = q.gab;
+          } else {
+            respostasAluno[q.item] = q.gab === 'A' ? 'B' : 'A';
+          }
+        });
+      }
+      
+      // Atualizar interface
+      ITENS_DB.forEach(q => {
+        if (respostasAluno[q.item]) {
+          selecionarOpcao(q.item, respostasAluno[q.item]);
+        }
+      });
+    }
+
+    function limparRespostas() {
+      respostasAluno = {};
+      renderizarGrade();
+      document.getElementById('painelResultados').classList.add('hidden');
+    }
+
+    // MOTOR PSICOMÉTRICO 3PL (MODELO INEP)
+    function calcularResultadoTRI() {
+      const respondidas = Object.keys(respostasAluno).length;
+      if (respondidas === 0) {
+        alert("Por favor, preencha pelo menos algumas questões para gerar o diagnóstico.");
+        return;
+      }
+
+      let acertosFacil = 0, totalFacil = 0;
+      let acertosMedio = 0, totalMedio = 0;
+      let acertosDificil = 0, totalDificil = 0;
+      let acertosTotal = 0;
+
+      ITENS_DB.forEach(q => {
+        const resp = respostasAluno[q.item];
+        const acertou = (resp === q.gab);
+        
+        if (q.tri === 'Fácil') {
+          totalFacil++;
+          if (acertou) acertosFacil++;
+        } else if (q.tri === 'Médio') {
+          totalMedio++;
+          if (acertou) acertosMedio++;
+        } else if (q.tri === 'Difícil') {
+          totalDificil++;
+          if (acertou) acertosDificil++;
+        }
+
+        if (acertou) acertosTotal++;
+      });
+
+      // Estimação por EAP em grade de -3 a +3
+      const numPontos = 61;
+      let thetaGrid = [];
+      for (let i = 0; i < numPontos; i++) {
+        thetaGrid.push(-3.0 + i * 0.1);
+      }
+
+      let numEAP = 0;
+      let denEAP = 0;
+
+      thetaGrid.forEach(th => {
+        // Prior Normal Padrao N(0,1)
+        const prior = Math.exp(-0.5 * th * th);
+        let verossimilhanca = 1.0;
+
+        ITENS_DB.forEach(q => {
+          const resp = respostasAluno[q.item];
+          if (!resp) return; // Se não respondeu, trata como omissa
+          
+          const D = 1.7;
+          const expTerm = Math.exp(-D * q.a * (th - q.b));
+          const p = q.c + (1.0 - q.c) / (1.0 + expTerm);
+          
+          if (resp === q.gab) {
+            verossimilhanca *= p;
+          } else {
+            verossimilhanca *= (1.0 - p);
+          }
+        });
+
+        const ponderacao = verossimilhanca * prior;
+        numEAP += th * ponderacao;
+        denEAP += ponderacao;
+      });
+
+      let thetaEstimado = 0;
+      if (denEAP > 0) {
+        thetaEstimado = numEAP / denEAP;
+      }
+
+      // Ajuste de coerência pedagógica
+      const taxaFacil = acertosFacil / totalFacil;
+      const taxaMedio = acertosMedio / totalMedio;
+      const taxaDificil = acertosDificil / totalDificil;
+
+      let statusCoerencia = "Alta Coerência";
+      let badgeStyle = "bg-emerald-950 text-emerald-400 border-emerald-700";
+      let descCoerencia = "Excelente consistência pedagógica: você dominou as questões de base (fáceis e médias). Na TRI oficial, esse padrão blinda sua nota para o topo.";
+
+      // Penalidade de incoerência se acertou difíceis mas errou a base
+      if (taxaDificil >= 0.5 && taxaFacil <= 0.33) {
+        statusCoerencia = "Alerta de Incoerência (Efeito Chute)";
+        badgeStyle = "bg-rose-950 text-rose-400 border-rose-700";
+        descCoerencia = "Atenção crítica: Você acertou itens difíceis, mas errou a base fácil. O algoritmo do INEP interpreta esse comportamento como chute e reduz severamente o escore da TRI.";
+        thetaEstimado -= 0.6; // Penalidade de coerência
+      } else if (taxaFacil < 0.5) {
+        statusCoerencia = "Oscilação na Base";
+        badgeStyle = "bg-amber-950 text-amber-400 border-amber-700";
+        descCoerencia = "Você perdeu pontos em questões de alta prioridade. Para passar dos 800 pontos, nenhuma questão de proporcionalidade, escala ou porcentagem pode ser perdida.";
+      }
+
+      // Escala ENEM de Matemática: média ~500, desvio ~100
+      let notaFinal = 500 + 100 * thetaEstimado;
+      
+      // Limites realistas
+      if (acertosTotal === 0) notaFinal = 320;
+      if (acertosTotal === 15) notaFinal = 985;
+      notaFinal = Math.max(320, Math.min(985, notaFinal));
+
+      const faixaMin = Math.max(300, (notaFinal - 25)).toFixed(0);
+      const faixaMax = Math.min(1000, (notaFinal + 25)).toFixed(0);
+
+      // Atualizar interface
+      document.getElementById('resNotaTRI').textContent = `${notaFinal.toFixed(1)}`;
+      document.getElementById('resFaixaNota').textContent = `Faixa provável no ENEM: ${faixaMin} a ${faixaMax} pontos`;
+      document.getElementById('resAcertos').textContent = `${acertosTotal} / 15`;
+      document.getElementById('resAproveitamento').textContent = `Aproveitamento: ${((acertosTotal/15)*100).toFixed(0)}%`;
+
+      const badgeElem = document.getElementById('badgeCoerencia');
+      badgeElem.className = `inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold border ${badgeStyle}`;
+      badgeElem.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i> ${statusCoerencia}`;
+      document.getElementById('resDescCoerencia').textContent = descCoerencia;
+
+      // Barras de progresso
+      document.getElementById('txtFacil').textContent = `${acertosFacil} / ${totalFacil}`;
+      document.getElementById('barFacil').style.width = `${(acertosFacil/totalFacil)*100}%`;
+
+      document.getElementById('txtMedio').textContent = `${acertosMedio} / ${totalMedio}`;
+      document.getElementById('barMedio').style.width = `${(acertosMedio/totalMedio)*100}%`;
+
+      document.getElementById('txtDificil').textContent = `${acertosDificil} / ${totalDificil}`;
+      document.getElementById('barDificil').style.width = `${(acertosDificil/totalDificil)*100}%`;
+
+      // Espelho da prova
+      const tbody = document.getElementById('tabelaEspelho');
+      tbody.innerHTML = '';
+
+      ITENS_DB.forEach(q => {
+        const resp = respostasAluno[q.item] || '-';
+        const acertou = (resp === q.gab);
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-900/40 transition-colors';
+        
+        tr.innerHTML = `
+          <td class="py-3 px-3 text-center font-bold text-white">Q${String(q.item).padStart(2, '0')}</td>
+          <td class="py-3 px-3 text-center font-bold ${acertou ? 'text-emerald-400' : 'text-rose-400'}">${resp}</td>
+          <td class="py-3 px-3 text-center font-bold text-white">${q.gab}</td>
+          <td class="py-3 px-3 text-center">
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold ${acertou ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-rose-950 text-rose-300 border border-rose-800'}">
+              ${acertou ? '✓ CORRETO' : '✕ ERRO'}
+            </span>
+          </td>
+          <td class="py-3 px-3 font-semibold text-amber-300">${q.hab}</td>
+          <td class="py-3 px-3 text-slate-300">${q.tri}</td>
+          <td class="py-3 px-3 text-slate-300">
+            <div>${q.topico}</div>
+            ${!acertou && resp !== '-' ? `<div class="text-[10px] text-rose-400/90 mt-0.5">⚠️ Distrator: ${q.erro}</div>` : ''}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Exibir resultados e rolar suavemente
+      const painel = document.getElementById('painelResultados');
+      painel.classList.remove('hidden');
+      lucide.createIcons();
+      painel.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', () => {
+      renderizarGrade();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
